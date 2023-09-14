@@ -1,0 +1,63 @@
+<div
+  class="p-4 text-gray-200 font-sans text-xl font-semibold antialiased decoration-white"
+>
+  <div class="flex items-center mb-4">
+    <label for="cfg" class="mr-2">Cfg:</label>
+    <input
+      type="range"
+      id="cfg"
+      min="1"
+      max="20"
+      [formControl]="cfgControl"
+      (change)="onSettingsChange()"
+      class="mr-2"
+    />
+    <span>{{ cfgControl.value }}</span>
+  </div>
+  <div class="flex items-center mb-4">
+    <label for="denoise" class="mr-2">Denoise:</label>
+    <input
+      type="range"
+      id="denoise"
+      min="1"
+      max="100"
+      [formControl]="denoiseControl"
+      (change)="onSettingsChange()"
+      class="mr-2"
+    />
+    <span>{{ denoiseControl.value }}</span>
+  </div>
+  <div class="mb-4">
+    <label for="style" class="mr-2">Style:</label>
+    <select
+      id="style"
+      [formControl]="styleControl"
+      (change)="onSettingsChange()"
+      class="mr-2"
+    >
+      <option *ngFor="let style of styles" [value]="style">{{ style }}</option>
+    </select>
+  </div>
+  <div class="mb-4">
+    <label for="model" class="mr-2">Model:</label>
+    <select
+      id="model"
+      [formControl]="modelControl"
+      (change)="onSettingsChange()"
+      class="mr-2"
+    >
+      <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="number" class="mr-2">Number:</label>
+    <input
+      type="number"
+      id="number"
+      min="1"
+      max="4"
+      [formControl]="numberControl"
+      (change)="onSettingsChange()"
+    />
+  </div>
+</div>
